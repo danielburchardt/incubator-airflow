@@ -820,7 +820,7 @@ class SchedulerJob(BaseJob):
             if dag.schedule_interval == '@once':
                 period_end = next_run_date
             elif next_run_date:
-                period_end = dag.following_schedule(next_run_date)
+                period_end = dag.following_schedule(None)
 
             # Don't schedule a dag beyond its end_date (as specified by the dag param)
             if next_run_date and dag.end_date and next_run_date > dag.end_date:
